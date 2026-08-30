@@ -102,13 +102,6 @@
 
         .hero h1 span { color: var(--acid); opacity: 0.7; }
 
-        .hero p {
-            font-size: 24px;
-            max-width: 500px;
-            margin: 0 auto;
-            opacity: 0.8;
-        }
-
         /* БЕГУЩАЯ СТРОКА */
         .marquee-wrapper {
             border-bottom: 1px solid var(--border);
@@ -150,7 +143,7 @@
         
         .about-text p {
             font-size: 20px;
-            max-width: 600px;
+            max-width: 650px;
             line-height: 1.4;
         }
 
@@ -158,7 +151,7 @@
             position: relative;
             width: 100%;
             height: 200px;
-            margin-top: 40px;
+            margin-top: 20px;
         }
 
         .name-tag {
@@ -175,6 +168,47 @@
 
         .name-tag.kirill { top: 20px; left: 10%; transform: rotate(-5deg); border-color: var(--text); color: var(--text); }
         .name-tag.ruslan { bottom: 20px; right: 20%; transform: rotate(3deg); }
+
+        /* ИНФО-БЛОКИ (ПРАЙС И ТЕХНИКА) */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .info-cell {
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 35px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            transition: border-color 0.3s ease;
+        }
+
+        .info-cell:hover {
+            border-color: var(--text);
+        }
+
+        .info-cell h3 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .info-cell p {
+            font-size: 18px;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+
+        .info-cell strong {
+            color: var(--text);
+            font-weight: 900;
+        }
 
         /* КЕЙСЫ (ПАПКИ) */
         .cases-header {
@@ -303,7 +337,6 @@
 
         <section class="hero" id="hero">
             <h1>We do <span>video.</span></h1>
-            <p>Сделаем дорогое видео, которое не пролистнут.</p>
         </section>
 
         <div class="marquee-wrapper">
@@ -314,13 +347,25 @@
 
         <section class="about" id="about">
             <div class="about-text">
-                <h2>Снимаете?<br>Ещё как.</h2>
-                <p>Мы занимаемся этим уже 2 года. От первой идеи до финального рендера. Берем на себя профессиональную съёмку и монтаж. Специализируемся на коротких вертикальных форматах и рекламе.</p>
+                <h2>Ваш уровень.<br>Без компромиссов.</h2>
+                <p>Визуальный контент для тех, кто привык к лучшему. Мы переводим ценности вашего бизнеса на язык безупречного стиля. Создаем короткие ролики и рекламу, которые моментально выделяют вас на фоне остальных и работают на вашу безупречную репутацию. Вы просто ставите задачу, а мы воплощаем ее с идеальным вкусом.</p>
             </div>
             
             <div class="floating-names">
                 <div class="name-tag kirill">кирилл</div>
                 <div class="name-tag ruslan">руслан</div>
+            </div>
+
+            <!-- НОВЫЕ БЛОКИ: ЦЕНА И ОБОРУДОВАНИЕ -->
+            <div class="info-grid">
+                <div class="info-cell">
+                    <h3>Стоимость</h3>
+                    <p>Съёмка и профессиональный монтаж одного Reels — <strong>9 000 ₽</strong>. В эту стоимость входит полный цикл производства: от проработки концепции до готового стильного ролика.</p>
+                </div>
+                <div class="info-cell">
+                    <h3>Наш Арсенал</h3>
+                    <p>Создаем кинематографичную картинку на передовые камеры <strong>Sony</strong> и ловим масштабные ракурсы с воздуха на квадрокоптеры <strong>DJI</strong>. Весь постпродакшен, включая ювелирный монтаж и цветокоррекцию, собираем в профессиональной экосистеме <strong>Adobe</strong>.</p>
+                </div>
             </div>
         </section>
 
