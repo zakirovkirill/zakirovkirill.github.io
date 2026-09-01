@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Production 11 | Видеопродакшен</title>
+    <title>PROJECT 11 | Видеопродакшен</title>
     <style>
         /* БАЗОВЫЕ НАСТРОЙКИ И ШРИФТЫ */
         :root {
@@ -53,6 +53,7 @@
             border-bottom: 1px solid var(--border);
             padding: 80px 40px;
             position: relative;
+            scroll-margin-top: 50px; 
         }
 
         /* НАВИГАЦИЯ */
@@ -63,9 +64,38 @@
             padding: 20px 40px;
             border-bottom: 1px solid var(--border);
             text-transform: uppercase;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
-        .logo { font-size: 20px; font-weight: 900; letter-spacing: -1px; }
+        .logo img { 
+            height: 65px; 
+            width: auto; 
+            display: block; 
+        }
+
+        .nav-departments {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .dept-tag {
+            background: transparent;
+            color: var(--text);
+            padding: 6px 14px;
+            border-radius: 50px;
+            border: 1px solid var(--border);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+
+        .dept-tag:hover {
+            border-color: var(--text);
+            background: rgba(255, 255, 255, 0.1);
+        }
         
         .contact-tag {
             background: var(--text);
@@ -92,15 +122,24 @@
         }
 
         .hero h1 {
-            font-size: 11vw;
+            font-size: 9vw;
             font-weight: 900;
-            line-height: 0.85;
+            line-height: 0.9;
             letter-spacing: -0.04em;
             text-transform: uppercase;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .hero h1 span { color: var(--acid); opacity: 0.7; }
+
+        .hero-subtext {
+            font-size: 24px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.8;
+            margin-top: 10px;
+        }
 
         /* БЕГУЩАЯ СТРОКА */
         .marquee-wrapper {
@@ -132,14 +171,6 @@
             flex-wrap: wrap;
             gap: 40px;
         }
-
-        .about-text h2 {
-            font-size: 5vw;
-            font-weight: 800;
-            line-height: 1;
-            letter-spacing: -2px;
-            margin-bottom: 20px;
-        }
         
         .about-text p {
             font-size: 20px;
@@ -169,45 +200,86 @@
         .name-tag.kirill { top: 20px; left: 10%; transform: rotate(-5deg); border-color: var(--text); color: var(--text); }
         .name-tag.ruslan { bottom: 20px; right: 20%; transform: rotate(3deg); }
 
-        /* ИНФО-БЛОКИ (ПРАЙС И ТЕХНИКА) */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            width: 100%;
-            margin-top: 10px;
-        }
-
-        .info-cell {
+        /* РАЗДЕЛЬНЫЕ ИНФО-БЛОКИ (СТОИМОСТЬ) */
+        .info-single {
             border: 1px solid var(--border);
             border-radius: 15px;
-            padding: 35px;
+            padding: 50px 40px;
             background: rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(10px);
             transition: border-color 0.3s ease;
+            max-width: 900px;
+            margin: 0 auto; 
+            text-align: center; 
         }
 
-        .info-cell:hover {
+        .info-single:hover {
             border-color: var(--text);
         }
 
-        .info-cell h3 {
-            font-size: 28px;
+        .info-single h3 {
+            font-size: 32px;
             font-weight: 800;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: -1px;
         }
 
-        .info-cell p {
-            font-size: 18px;
+        .info-single p {
+            font-size: 20px;
             line-height: 1.5;
             opacity: 0.9;
         }
 
-        .info-cell strong {
+        .info-single strong {
             color: var(--text);
             font-weight: 900;
+        }
+
+        /* НОВЫЙ БЛОК: ЭКСПЕРТИЗА (СЕТКА 2x2) */
+        .expertise-section {
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 50px 40px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            transition: border-color 0.3s ease;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .expertise-section:hover {
+            border-color: var(--text);
+        }
+
+        .expertise-section > h3 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            text-align: left;
+        }
+
+        .expertise-item h4 {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: var(--text);
+            text-transform: uppercase;
+        }
+
+        .expertise-item p {
+            font-size: 16px;
+            line-height: 1.5;
+            opacity: 0.8;
         }
 
         /* КЕЙСЫ (ПАПКИ) */
@@ -238,6 +310,7 @@
             padding: 40px 20px 20px 20px;
             background: transparent;
             transition: border-color 0.3s;
+            scroll-margin-top: 100px;
         }
 
         .folder::before {
@@ -298,28 +371,114 @@
             left: 0;
         }
 
-        /* ПОДВАЛ */
+        /* ПОДВАЛ / КОНТАКТЫ */
         footer {
             text-align: center;
             padding: 100px 20px;
+            scroll-margin-top: 50px;
         }
 
-        .huge-link {
-            font-size: 6vw;
+        .footer-title {
+            font-size: 5vw;
             font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            margin-bottom: 40px;
+        }
+
+        .footer-contacts-wrap {
+            display: flex;
+            justify-content: center;
+            gap: 6vw;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            font-size: 2vw;
+            font-weight: 700;
             color: var(--text);
             text-decoration: none;
             text-transform: uppercase;
-            letter-spacing: -0.05em;
-            transition: opacity 0.3s;
-            display: inline-flex;
+            display: flex;
             flex-direction: column;
             align-items: center;
             gap: 15px;
+            transition: opacity 0.3s;
         }
 
-        .huge-link:hover {
+        .contact-item svg {
+            width: 8vw;
+            height: 8vw;
+            max-width: 70px;
+            max-height: 70px;
+        }
+
+        .contact-item:hover {
             opacity: 0.6;
+        }
+
+        .phone-block {
+            margin-bottom: 60px;
+        }
+
+        .manager-label {
+            display: block;
+            font-size: 1vw;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text);
+            opacity: 0.6;
+            margin-bottom: 10px;
+        }
+
+        .footer-phone {
+            display: block;
+            font-size: 1.8vw;
+            font-weight: bold;
+            color: var(--acid);
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: opacity 0.3s;
+        }
+
+        .footer-phone:hover {
+            opacity: 0.7;
+        }
+
+        .footer-logo {
+            height: 10vw;
+            max-height: 130px; 
+            width: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* --- КЛАССЫ ДЛЯ АНИМАЦИИ ПРИ СКРОЛЛЕ --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
+        }
+
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .footer-title { font-size: 32px; }
+            .contact-item { font-size: 14px; gap: 8px; }
+            .contact-item svg { width: 50px; height: 50px; }
+            
+            .manager-label { font-size: 12px; }
+            .footer-phone { font-size: 18px; }
+            .phone-block { margin-bottom: 40px; }
+            
+            .hero-subtext { font-size: 14px; }
+            .info-single h3, .expertise-section > h3 { font-size: 24px; }
+            .info-single p { font-size: 16px; }
+            .expertise-grid { grid-template-columns: 1fr; text-align: center; }
         }
     </style>
 </head>
@@ -331,53 +490,83 @@
 
     <div class="wrapper">
         <header>
-            <div class="logo">Production 11</div>
+            <div class="logo">
+                <img src="logo.png" alt="PROJECT 11">
+            </div>
+            <div class="nav-departments">
+                <a href="#about" class="dept-tag">Про нас</a>
+                <a href="#cases" class="dept-tag">Кейсы</a>
+                <a href="#price" class="dept-tag">Стоимость</a>
+                <a href="#expertise" class="dept-tag">Экспертиза</a>
+                <a href="#contacts" class="dept-tag">Контакты</a>
+            </div>
             <a href="#contacts" class="contact-tag">обсудить проект</a>
         </header>
 
-        <section class="hero" id="hero">
-            <h1>We do <span>video.</span></h1>
+        <section class="hero fade-in" id="hero">
+            <h1>Продаем<br><span>через кадр.</span></h1>
+            <p class="hero-subtext">видеопродакшен полного цикла</p>
         </section>
 
-        <div class="marquee-wrapper">
+        <div class="marquee-wrapper fade-in">
             <div class="marquee">
-                съёмка • монтаж • production 11 • короткие формы • reels • рекламные ролики • съёмка • монтаж • production 11 • короткие формы • reels • рекламные ролики • 
+                съёмка • монтаж • project 11 • короткие формы • reels • рекламные ролики • съёмка • монтаж • project 11 • короткие формы • reels • рекламные ролики • 
             </div>
         </div>
 
         <section class="about" id="about">
-            <div class="about-text">
-                <h2>Ваш уровень.<br>Без компромиссов.</h2>
-                <p>Визуальный контент для тех, кто привык к лучшему. Мы переводим ценности вашего бизнеса на язык безупречного стиля. Создаем короткие ролики и рекламу, которые моментально выделяют вас на фоне остальных и работают на вашу безупречную репутацию. Вы просто ставите задачу, а мы воплощаем ее с идеальным вкусом.</p>
+            <div class="about-text fade-in">
+                <p>Мы создаем визуальные истории уже более двух лет. От зарождения идеи до безупречного финального рендера — каждый кадр находится под нашим контролем. Наша стихия — это динамичные вертикальные форматы и стильные рекламные ролики, которые захватывают внимание зрителя с первой секунды.</p>
             </div>
             
-            <div class="floating-names">
+            <div class="floating-names fade-in">
                 <div class="name-tag kirill">кирилл</div>
                 <div class="name-tag ruslan">руслан</div>
             </div>
+        </section>
 
-            <!-- НОВЫЕ БЛОКИ: ЦЕНА И ОБОРУДОВАНИЕ -->
-            <div class="info-grid">
-                <div class="info-cell">
-                    <h3>Стоимость</h3>
-                    <p>Съёмка и профессиональный монтаж одного Reels — <strong>9 000 ₽</strong>. В эту стоимость входит полный цикл производства: от проработки концепции до готового стильного ролика.</p>
-                </div>
-                <div class="info-cell">
-                    <h3>Наш Арсенал</h3>
-                    <p>Создаем кинематографичную картинку на передовые камеры <strong>Sony</strong> и ловим масштабные ракурсы с воздуха на квадрокоптеры <strong>DJI</strong>. Весь постпродакшен, включая ювелирный монтаж и цветокоррекцию, собираем в профессиональной экосистеме <strong>Adobe</strong>.</p>
+        <!-- ОТДЕЛЬНАЯ СЕКЦИЯ: СТОИМОСТЬ -->
+        <section id="price">
+            <div class="info-single fade-in">
+                <h3>Стоимость</h3>
+                <p>Стоимость наших услуг <strong>обговаривается индивидуально</strong> в зависимости от задачи. В нее входит полный цикл производства: от проработки концепции до готового стильного ролика.</p>
+            </div>
+        </section>
+
+        <!-- ОТДЕЛЬНАЯ СЕКЦИЯ: ЭКСПЕРТИЗА (БЫВШИЙ АРСЕНАЛ) -->
+        <section id="expertise">
+            <div class="expertise-section fade-in">
+                <h3>Экспертиза</h3>
+                <div class="expertise-grid">
+                    <div class="expertise-item">
+                        <h4>Архитектурная FPV</h4>
+                        <p>Маневренные пролёты и уникальные ракурсы, которые покажут масштаб и геометрию любого объекта.</p>
+                    </div>
+                    <div class="expertise-item">
+                        <h4>AI визуализация</h4>
+                        <p>Интеграция передовых нейросетей для создания впечатляющих эффектов и концептуальной графики.</p>
+                    </div>
+                    <div class="expertise-item">
+                        <h4>Съёмка</h4>
+                        <p>Кинематографичная картинка на топовые камеры с полным контролем света и выстроенной композицией.</p>
+                    </div>
+                    <div class="expertise-item">
+                        <h4>Монтаж</h4>
+                        <p>Динамичный ритм, глубокий саунд-дизайн и ювелирная цветокоррекция в профессиональной среде.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="cases" id="cases">
-            <div class="cases-header">
+            <div class="cases-header fade-in">
                 <h2>Смотреть<br>кейсы</h2>
                 <a href="#reels-section" class="contact-tag" style="background: transparent; color: var(--text);">все работы ↓</a>
             </div>
 
             <div class="folders-container" id="reels-section">
                 <!-- Папка 1: Недвижимость -->
-                <div class="folder" data-title="Недвижимость">
+                <div class="folder fade-in" id="folder-realty" data-title="Недвижимость">
                     <div class="reels-grid">
                         <div class="reel">
                             <video src="недвижимость.mp4" controls playsinline></video>
@@ -391,7 +580,7 @@
                 </div>
 
                 <!-- Папка 2: Разговорные -->
-                <div class="folder" data-title="Разговорные">
+                <div class="folder fade-in" id="folder-talk" data-title="Разговорные">
                     <div class="reels-grid">
                         <div class="reel">
                             <video src="подкаст reels.mp4" controls playsinline></video>
@@ -409,7 +598,7 @@
                 </div>
 
                 <!-- Папка 3: Форумы -->
-                <div class="folder" data-title="Форумы">
+                <div class="folder fade-in" id="folder-forums" data-title="Форумы">
                     <div class="reels-grid">
                         <div class="reel"><span>ждет вас</span></div>
                         <div class="reel"><span>ждет вас</span></div>
@@ -419,7 +608,7 @@
                 </div>
                 
                 <!-- Папка 4: Ресторан -->
-                <div class="folder" data-title="Ресторан">
+                <div class="folder fade-in" id="folder-rest" data-title="Ресторан">
                     <div class="reels-grid">
                         <div class="reel">
                             <video src="рест1.MP4" controls playsinline></video>
@@ -438,15 +627,54 @@
             </div>
         </section>
 
-        <footer id="contacts">
-            <a href="https://t.me/zzzkrkr" target="_blank" class="huge-link">
-                <svg viewBox="0 0 24 24" width="8vw" height="8vw" fill="currentColor">
-                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.415-1.21.258-1.91.176-.184 3.233-2.977 3.293-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.867-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.432.895-.65a63.784 63.784 0 0 1 7.42-3.195c3.54-1.472 4.275-1.727 4.757-1.735z"/>
-                </svg>
-                PRODUCTION 11
-            </a>
+        <footer id="contacts" class="fade-in">
+            <h2 class="footer-title">Обсудить проект</h2>
+            
+            <div class="footer-contacts-wrap">
+                <!-- Telegram -->
+                <a href="https://t.me/zzzkrkr" target="_blank" class="contact-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.415-1.21.258-1.91.176-.184 3.233-2.977 3.293-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.867-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.432.895-.65a63.784 63.784 0 0 1 7.42-3.195c3.54-1.472 4.275-1.727 4.757-1.735z"/>
+                    </svg>
+                    Telegram
+                </a>
+            </div>
+
+            <!-- Номер текстом и должность -->
+            <div class="phone-block">
+                <span class="manager-label">manager project 11</span>
+                <a href="tel:+79024773422" class="footer-phone">+7 (902) 477-34-22</a>
+            </div>
+
+            <!-- Логотип в подвале -->
+            <img src="logo.png" alt="PROJECT 11" class="footer-logo">
         </footer>
     </div>
 
+    <!-- СКРИПТ ДЛЯ ПОВТОРЯЮЩЕЙСЯ АНИМАЦИИ ПРИ СКРОЛЛЕ -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const faders = document.querySelectorAll('.fade-in');
+
+            const appearOptions = {
+                threshold: 0.1, 
+                rootMargin: "0px 0px -50px 0px" 
+            };
+
+            const appearOnScroll = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('appear');
+                    } else {
+                        entry.target.classList.remove('appear');
+                    }
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+        });
+    </script>
 </body>
 </html>
